@@ -34,15 +34,18 @@ public class LoginTest {
 
     @Test(priority = 2)
     public void verifyLoginWithInvalidUnAndValidPW() throws InterruptedException {
+
+
         WebDriver driver = new ChromeDriver();
         driver.get(uri);
         driver.manage().window().maximize();
         Thread.sleep(5000);
 
+        LoginPage loginPage = new LoginPage(driver);
 
 
         Thread.sleep(5000);
-
+        Assert.assertTrue(loginPage.invalidLogin(), "User successfully logged into the system");
 
         driver.quit();
     }
